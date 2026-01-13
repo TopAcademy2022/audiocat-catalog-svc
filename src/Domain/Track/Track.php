@@ -26,9 +26,7 @@ class Track implements JsonSerializable
     {
         $this->id = Uuid::v4()->toRfc4122();
         $this->title = strtolower($title);
-        $this->media_id = $media_id !== null
-            ? ucfirst($media_id)
-            : null;
+        $this->media_id = $media_id !== null ? trim($media_id) : null;
     }
 
     public function getId(): string

@@ -26,9 +26,7 @@ class Artist implements JsonSerializable
     {
         $this->id = Uuid::v4()->toRfc4122();
         $this->name = strtolower($name);
-        $this->description = $description !== null
-            ? ucfirst($description)
-            : null;
+        $this->description = $description !== null ? trim($description) : null;
     }
 
     public function getId(): string
