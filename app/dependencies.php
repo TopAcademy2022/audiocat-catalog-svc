@@ -10,6 +10,10 @@ use Monolog\Processor\UidProcessor;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
+use App\Infrastructure\Persistence\Doctrine\EntityManagerFactory;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+
 return function (ContainerBuilder $containerBuilder) {
     $containerBuilder->addDefinitions([
         LoggerInterface::class => function (ContainerInterface $c) {
@@ -26,5 +30,7 @@ return function (ContainerBuilder $containerBuilder) {
 
             return $logger;
         },
+        EntityManager::class => DI\factory(EntityManagerFactory::class),
+        EntityManagerInterface::class => DI\get(EntityManager::class),
     ]);
 };

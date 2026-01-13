@@ -1,8 +1,40 @@
 # audiocat-catalog-svc
 Catalog service: CRUD and REST API for music metadata (tracks, albums, artists).
 
-# Requiments
-1. Php v8.2
+The service is built with **PHP 8.2** and **Slim Framework** and is intended to be a standalone microservice within the AudioCat ecosystem.
+
+---
+
+## Status
+
+![PHP](https://img.shields.io/badge/PHP-8.2-blue)
+![Framework](https://img.shields.io/badge/Slim-4-lightgrey)
+![License](https://img.shields.io/github/license/TopAcademy2022/audiocat-catalog-svc)
+
+![Tests](https://github.com/TopAcademy2022/audiocat-catalog-svc/actions/workflows/tests.yml/badge.svg)
+![Coverage](https://img.shields.io/badge/coverage-TBD-lightgrey)
+
+> ℹ️ Coverage badge is a placeholder for now and will be updated once code coverage reporting is fully configured.
+
+---
+
+## Requirements
+
+- PHP **8.2**
+- Composer **2.x**
+- (Optional) Docker & Docker Compose
+
+---
+
+## Project Initialization (Install Dependencies)
+
+Before running the application, you must install PHP dependencies.
+
+From the project root directory:
+
+```bash
+composer install
+```
 
 ## How to run the Application
 

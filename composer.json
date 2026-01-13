@@ -24,10 +24,15 @@
     "require": {
         "php": "^8.2",
         "ext-json": "*",
+        "doctrine/dbal": "^4",
+        "doctrine/migrations": "^3",
+        "doctrine/orm": "^3",
         "monolog/monolog": "^3.10",
         "php-di/php-di": "^7.1",
+        "ramsey/uuid": "^4.9",
         "slim/psr7": "^1.5",
-        "slim/slim": "^4.10"
+        "slim/slim": "^4.10",
+        "symfony/cache": "^7.4"
     },
     "require-dev": {
         "jangregor/phpstan-prophecy": "^1.0.0",
@@ -59,6 +64,9 @@
     },
     "scripts": {
         "start": "php -S localhost:8080 -t public",
-        "test": "phpunit"
+        "test": "phpunit",
+        "schema:create": "php bin/schema.php create",
+        "schema:update": "php bin/schema.php update",
+        "schema:recreate": "php bin/schema.php recreate"
     }
 }

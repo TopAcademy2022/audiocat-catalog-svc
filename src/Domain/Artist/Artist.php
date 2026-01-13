@@ -6,22 +6,29 @@ namespace App\Domain\Artist;
 
 use JsonSerializable;
 
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity]
+#[ORM\Table(name: 'artists')]
 class Artist implements JsonSerializable
 {
-    private ?int $id;
+    #[ORM\Id]
+    #[ORM\Column(type: 'guid', unique: true)]
+    private string $id;
 
+    #[ORM\Column(length: 255)]
     private string $name;
 
+    #[ORM\Column(length: 255)]
     private ?string $description;
 
-    public function __construct(?int $id, string $name, ?string $description)
+    public function __construct(string $name, ?string $description)
     {
-        $this->id = $id;
         $this->name = strtolower($name);
         $this->description = ucfirst($description);
     }
 
-    public function getId(): ?int
+    public function getId(): string
     {
         return $this->id;
     }
