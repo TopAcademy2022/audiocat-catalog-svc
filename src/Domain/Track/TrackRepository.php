@@ -12,9 +12,9 @@ interface TrackRepository
     public function findAll(): array;
 
     /**
-     * @param int $id
+     * @param string $id
      * @return Track
      * @throws TrackNotFoundException
      */
-    public function findTrackOfId(int $id): Track;
+    public function findTrackOfId(string $id): Track;
 }

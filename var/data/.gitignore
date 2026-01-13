@@ -1,0 +1,7 @@
+# Ignore all database files
+*.sqlite
+*.sqlite3
+*.db
+
+# Keep this directory in repository
+!.gitignore

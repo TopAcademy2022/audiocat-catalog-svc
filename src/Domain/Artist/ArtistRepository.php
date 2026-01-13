@@ -12,9 +12,9 @@ interface ArtistRepository
     public function findAll(): array;
 
     /**
-     * @param int $id
+     * @param string $id
      * @return Artist
      * @throws ArtistNotFoundException
      */
-    public function findArtistOfId(int $id): Artist;
+    public function findArtistOfId(string $id): Artist;
 }
