@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Domain\Track;
 
 use JsonSerializable;
-
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
