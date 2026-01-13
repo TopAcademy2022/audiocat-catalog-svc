@@ -6,6 +6,7 @@ namespace App\Domain\Artist;
 
 use JsonSerializable;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Uid\Uuid;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'artists')]
@@ -23,8 +24,11 @@ class Artist implements JsonSerializable
 
     public function __construct(string $name, ?string $description)
     {
+        $this->id = Uuid::v4()->toRfc4122();
         $this->name = strtolower($name);
-        $this->description = ucfirst($description);
+        $this->description = $description !== null
+            ? ucfirst($description)
+            : null;
     }
 
     public function getId(): string

@@ -6,6 +6,7 @@ namespace App\Domain\Track;
 
 use JsonSerializable;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Uid\Uuid;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'tracks')]
@@ -23,8 +24,11 @@ class Track implements JsonSerializable
 
     public function __construct(string $title, ?string $media_id)
     {
+        $this->id = Uuid::v4()->toRfc4122();
         $this->title = strtolower($title);
-        $this->media_id = ucfirst($media_id);
+        $this->media_id = $media_id !== null
+            ? ucfirst($media_id)
+            : null;
     }
 
     public function getId(): string
