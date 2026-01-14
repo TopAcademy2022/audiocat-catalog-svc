@@ -10,7 +10,7 @@ use App\Domain\Artist\ArtistRepository;
 use DI\Container;
 use Tests\TestCase;
 
-final class ListArtistsActionTest extends TestCase
+final class ListArtistActionTest extends TestCase
 {
     public function testAction(): void
     {

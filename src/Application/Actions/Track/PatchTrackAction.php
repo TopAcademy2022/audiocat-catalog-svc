@@ -15,6 +15,10 @@ final class PatchTrackAction extends TrackAction
         $track = $this->trackRepository->findTrackOfId($trackId);
 
         $data = $this->getJsonBody();
+        
+        if ($data === null) {
+            return $this->respondWithData(['message' => 'Invalid JSON in request body.'], 400);
+        }
 
         try {
             if (array_key_exists('title', $data)) {
@@ -44,9 +48,9 @@ final class PatchTrackAction extends TrackAction
     }
 
     /**
-     * @return array<string, mixed>
+     * @return array<string, mixed>|null Returns null if JSON parsing fails
      */
-    private function getJsonBody(): array
+    private function getJsonBody(): ?array
     {
         $raw = (string) $this->request->getBody();
         if ($raw === '') {
@@ -54,6 +58,11 @@ final class PatchTrackAction extends TrackAction
         }
 
         $data = json_decode($raw, true);
+        
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            return null;
+        }
+        
         return is_array($data) ? $data : [];
     }
 }
