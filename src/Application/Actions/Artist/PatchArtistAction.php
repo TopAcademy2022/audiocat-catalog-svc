@@ -15,7 +15,7 @@ final class PatchArtistAction extends ArtistAction
         $artist = $this->artistRepository->findArtistOfId($artistId);
 
         $data = $this->getJsonBody();
-        
+
         if ($data === null) {
             return $this->respondWithData(['message' => 'Invalid JSON in request body.'], 400);
         }
@@ -58,11 +58,11 @@ final class PatchArtistAction extends ArtistAction
         }
 
         $data = json_decode($raw, true);
-        
+
         if (json_last_error() !== JSON_ERROR_NONE) {
             return null;
         }
-        
+
         return is_array($data) ? $data : [];
     }
 }

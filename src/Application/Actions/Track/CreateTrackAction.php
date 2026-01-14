@@ -12,7 +12,7 @@ final class CreateTrackAction extends TrackAction
     protected function action(): Response
     {
         $data = $this->getJsonBody();
-        
+
         if ($data === null) {
             return $this->respondWithData(['message' => 'Invalid JSON in request body.'], 400);
         }
@@ -50,11 +50,11 @@ final class CreateTrackAction extends TrackAction
         }
 
         $data = json_decode($raw, true);
-        
+
         if (json_last_error() !== JSON_ERROR_NONE) {
             return null;
         }
-        
+
         return is_array($data) ? $data : [];
     }
 }
