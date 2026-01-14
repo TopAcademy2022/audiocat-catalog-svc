@@ -6,18 +6,17 @@ namespace App\Application\Actions\Track;
 
 use Psr\Http\Message\ResponseInterface as Response;
 
-class ViewTrackAction extends TrackAction
+final class DeleteTrackAction extends TrackAction
 {
-    /**
-     * {@inheritdoc}
-     */
     protected function action(): Response
     {
         $trackId = $this->resolveArg('id');
         $track = $this->trackRepository->findTrackOfId($trackId);
 
-        $this->logger->info("Track of id {$trackId} was viewed.");
+        $this->trackRepository->delete($track);
 
-        return $this->respondWithData($track);
+        $this->logger->info("Track of id {$trackId} was deleted.");
+
+        return $this->respondWithData(null, 204);
     }
 }

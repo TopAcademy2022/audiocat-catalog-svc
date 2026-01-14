@@ -6,7 +6,10 @@ namespace App\Domain\Artist;
 
 use App\Domain\DomainException\DomainRecordNotFoundException;
 
-class ArtistNotFoundException extends DomainRecordNotFoundException
+final class ArtistNotFoundException extends DomainRecordNotFoundException
 {
-    public $message = 'The artist you requested does not exist.';
+    public function __construct(string $artistId = '')
+    {
+        parent::__construct('The artist you requested does not exist.');
+    }
 }

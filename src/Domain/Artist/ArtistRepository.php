@@ -17,4 +17,8 @@ interface ArtistRepository
      * @throws ArtistNotFoundException
      */
     public function findArtistOfId(string $id): Artist;
+
+    public function save(Artist $artist): void;
+
+    public function delete(Artist $artist): void;
 }
