@@ -17,4 +17,8 @@ interface TrackRepository
      * @throws TrackNotFoundException
      */
     public function findTrackOfId(string $id): Track;
+
+    public function save(Track $track): void;
+
+    public function delete(Track $track): void;
 }

@@ -36,4 +36,16 @@ final class DoctrineArtistRepository implements ArtistRepository
 
         return $artist;
     }
+
+    public function save(Artist $artist): void
+    {
+        $this->entityManager->persist($artist);
+        $this->entityManager->flush();
+    }
+
+    public function delete(Artist $artist): void
+    {
+        $this->entityManager->remove($artist);
+        $this->entityManager->flush();
+    }
 }

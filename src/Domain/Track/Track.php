@@ -19,7 +19,7 @@ class Track implements JsonSerializable
     #[ORM\Column(length: 255)]
     private string $title;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $media_id;
 
     public function __construct(string $title, ?string $media_id)
@@ -42,6 +42,21 @@ class Track implements JsonSerializable
     public function getMediaId(): ?string
     {
         return $this->media_id;
+    }
+
+    public function rename(string $title): void
+    {
+        $title = trim($title);
+        if ($title === '') {
+            throw new \InvalidArgumentException('Track title cannot be empty.');
+        }
+
+        $this->title = strtolower($title);
+    }
+
+    public function changeMediaId(?string $mediaId): void
+    {
+        $this->media_id = $mediaId !== null ? trim($mediaId) : null;
     }
 
     #[\ReturnTypeWillChange]

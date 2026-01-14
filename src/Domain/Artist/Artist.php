@@ -44,6 +44,21 @@ class Artist implements JsonSerializable
         return $this->description;
     }
 
+    public function rename(string $name): void
+    {
+        $name = trim($name);
+        if ($name === '') {
+            throw new \InvalidArgumentException('Artist name cannot be empty.');
+        }
+
+        $this->name = strtolower($name);
+    }
+
+    public function changeDescription(?string $description): void
+    {
+        $this->description = $description !== null ? trim($description) : null;
+    }
+
     #[\ReturnTypeWillChange]
     public function jsonSerialize(): array
     {

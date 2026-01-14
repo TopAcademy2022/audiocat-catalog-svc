@@ -12,9 +12,7 @@ The service is built with **PHP 8.2** and **Slim Framework** and is intended to 
 ![License](https://img.shields.io/github/license/TopAcademy2022/audiocat-catalog-svc)
 
 ![Tests](https://github.com/TopAcademy2022/audiocat-catalog-svc/actions/workflows/tests.yml/badge.svg)
-![Coverage](https://img.shields.io/badge/coverage-TBD-lightgrey)
-
-> ℹ️ Coverage badge is a placeholder for now and will be updated once code coverage reporting is fully configured.
+[![Coverage Status](https://coveralls.io/repos/github/TopAcademy2022/audiocat-catalog-svc/badge.svg?branch=main)](https://coveralls.io/github/TopAcademy2022/audiocat-catalog-svc?branch=main)
 
 ---
 

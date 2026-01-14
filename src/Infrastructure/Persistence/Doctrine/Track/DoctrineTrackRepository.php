@@ -36,4 +36,16 @@ final class DoctrineTrackRepository implements TrackRepository
 
         return $track;
     }
+
+    public function save(Track $track): void
+    {
+        $this->entityManager->persist($track);
+        $this->entityManager->flush();
+    }
+
+    public function delete(Track $track): void
+    {
+        $this->entityManager->remove($track);
+        $this->entityManager->flush();
+    }
 }
