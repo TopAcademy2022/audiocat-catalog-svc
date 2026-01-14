@@ -23,8 +23,12 @@ final class ArtistTest extends TestCase
     /**
      * @dataProvider artistProvider
      */
-    public function testGetters(string $name, ?string $description, string $expectedName, ?string $expectedDescription): void
-    {
+    public function testGetters(
+        string $name,
+        ?string $description,
+        string $expectedName,
+        ?string $expectedDescription
+    ): void {
         $artist = new Artist($name, $description);
 
         // id is UUID string generated in constructor, cannot predict exact value
@@ -41,8 +45,13 @@ final class ArtistTest extends TestCase
     /**
      * @dataProvider artistProvider
      */
-    public function testJsonSerialize(string $name, ?string $description, string $expectedName, ?string $expectedDescription): void
-    {
+    public function testJsonSerialize(
+        string $name,
+        ?string $description,
+        string $expectedName,
+        ?string $expectedDescription
+    ): void {
+
         $artist = new Artist($name, $description);
 
         $payload = json_decode((string) json_encode($artist), true);
