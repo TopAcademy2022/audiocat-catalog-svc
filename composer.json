@@ -31,7 +31,7 @@
         "php-di/php-di": "^7.1",
         "ramsey/uuid": "^4.9",
         "slim/psr7": "^1.5",
-        "slim/slim": "^4.10",
+        "slim/slim": "^4.15",
         "symfony/cache": "^7.4",
         "symfony/uid": "^7.4"
     },
