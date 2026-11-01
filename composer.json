@@ -27,7 +27,7 @@
         "doctrine/dbal": "^4",
         "doctrine/migrations": "^3",
         "doctrine/orm": "^3",
-        "monolog/monolog": "^3.10",
+        "monolog/monolog": "^3.12",
         "php-di/php-di": "^7.1",
         "ramsey/uuid": "^4.9",
         "slim/psr7": "^1.5",
